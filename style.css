@@ -39,6 +39,10 @@ h1, h2 {
   fill: violet;
 }
 
+.bar:hover {
+  fill: blue;
+}
+
 .tooltip {
 position: absolute;
 background-color: grey;

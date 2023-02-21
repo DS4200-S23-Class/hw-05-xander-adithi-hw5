@@ -86,14 +86,15 @@ const FRAME2 = d3.select("#vis2")
 // read bar chart data
 d3.csv("data/bar-data.csv").then((DATA) => {
     // find the max Y for the scaling
-    const MAX_Y = d3.max(DATA, (d) => { return d.amount; });
-    
+	const MAX_Y = d3.max(DATA, (d) => { return parseInt(d.amount); });
+
     // Scaling constants
 	const X_SCALE = d3.scaleBand()
         .domain(DATA.map(function(d) { return d.category; }))
-        .range([0, VIS_WIDTH]);
+        .range([0, VIS_WIDTH])
+        .padding(.2);
 	const Y_SCALE = d3.scaleLinear()
-        .domain([(MAX_Y + 10) ,0])
+        .domain([(MAX_Y+1), 0])
         .range([0, VIS_HEIGHT]);
 
     // Plots each of the bars
@@ -136,7 +137,7 @@ d3.csv("data/bar-data.csv").then((DATA) => {
     // Moves the tool tip based on where the mouse is, and shows the values of the bar
     function moveToolTip(event, d){
         TOOLTIP.html("Category " + d.category + "<br>Value: " + d.amount)
-            .style("left", (event.pageX + 10) + "px") //offset
+            .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 50) + "px");
     }
 

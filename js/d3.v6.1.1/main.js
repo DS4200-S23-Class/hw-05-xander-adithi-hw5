@@ -5,8 +5,7 @@ const MARGINS = {left:50, right:50, top:50, bottom:50};
 const VIS_HEIGHT = FRAME_HEIGHT - (MARGINS.top + MARGINS.bottom);
 const VIS_WIDTH = FRAME_WIDTH - (MARGINS.left + MARGINS.right);
 
-
-
+// create svg in vis1 div
 const FRAME1 = d3.select("#vis1")
     .append("svg")
     .attr("height", FRAME_HEIGHT)
@@ -77,6 +76,7 @@ d3.csv("data/scatter-data.csv").then((DATA) => {
     d3.selectAll(".point").on("click", clickedPoint);
 });
 
+// create svg in vis2 div
 const FRAME2 = d3.select("#vis2")
     .append("svg")
     .attr("height", FRAME_HEIGHT)
@@ -118,7 +118,6 @@ d3.csv("data/bar-data.csv").then((DATA) => {
 		.call(d3.axisLeft(Y_SCALE).ticks(10))
 		.attr("font-size", '15px');
 
-
 	// Tooltip for bar plot
     const TOOLTIP = d3.select("#vis2")
         .append("div")
@@ -142,7 +141,7 @@ d3.csv("data/bar-data.csv").then((DATA) => {
             .style("top", (event.pageY - 50) + "px");
     }
 
-    // Add event listeners
+    // Add event listeners for the mouse events on the bars
     d3.selectAll(".bar")
         .on("mouseover", showToolTip)
         .on("mouseleave", hideToolTip)

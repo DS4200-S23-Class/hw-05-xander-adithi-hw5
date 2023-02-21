@@ -35,11 +35,12 @@ h1, h2 {
   stroke: green;
 }
 
+.bar {
+  fill: violet;
+}
+
 .tooltip {
 position: absolute;
 background-color: grey;
-border:  solid;
-border-width: 2px;
-border-radius: 5px;
 padding: 5px;
 }

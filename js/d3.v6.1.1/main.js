@@ -41,18 +41,6 @@ d3.csv("data/scatter-data.csv").then((DATA) => {
 		.call(d3.axisLeft(Y_SCALE).ticks(10))
         .attr("font-size", "15px");
 
-    // function to add new point to the scatter
-    function newPoint() {
-        let x_coord = document.getElementById("x-coord").value;
-        let y_coord =  document.getElementById("y-coord").value;
-
-        FRAME1.append("circle")
-            .attr("cx", (d) => { return (X_SCALE(x_coord) + MARGINS.left); })
-            .attr("cy", (d) => { return (Y_SCALE(y_coord) + MARGINS.top) ; })
-            .attr("r", 10)
-            .attr("class", "point");
-    }
-    
     // function for adding last point text
     function clickedPoint() {
         // Print this point coordinates on the right side
@@ -68,6 +56,19 @@ d3.csv("data/scatter-data.csv").then((DATA) => {
         this.classList.toggle('point-border');
     }
 
+    // function to add new point to the scatter
+    function newPoint() {
+        let x_coord = document.getElementById("x-coord").value;
+        let y_coord =  document.getElementById("y-coord").value;
+
+        FRAME1.append("circle")
+            .attr("cx", (d) => { return (X_SCALE(x_coord) + MARGINS.left); })
+            .attr("cy", (d) => { return (Y_SCALE(y_coord) + MARGINS.top) ; })
+            .attr("r", 10)
+            .attr("class", "point")
+            .on("click", clickedPoint);
+    }
+    
     // event listener for adding and clicking the points in vis1
     d3.selectAll("#submit").on("click", newPoint);
     d3.selectAll(".point").on("click", clickedPoint);

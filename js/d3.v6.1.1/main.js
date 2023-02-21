@@ -86,15 +86,14 @@ const FRAME2 = d3.select("#vis2")
 // read bar chart data
 d3.csv("data/bar-data.csv").then((DATA) => {
     // find the max Y for the scaling
-    const MAX_Y2 = d3.max(DATA, (d) => { return d.amount; });
-    console.log(MAX_Y2)
-
+    const MAX_Y = d3.max(DATA, (d) => { return d.amount; });
+    
     // Scaling constants
 	const X_SCALE = d3.scaleBand()
         .domain(DATA.map(function(d) { return d.category; }))
         .range([0, VIS_WIDTH]);
 	const Y_SCALE = d3.scaleLinear()
-        .domain([(MAX_Y2 + 10) ,0])
+        .domain([(MAX_Y + 10) ,0])
         .range([0, VIS_HEIGHT]);
 
     // Plots each of the bars

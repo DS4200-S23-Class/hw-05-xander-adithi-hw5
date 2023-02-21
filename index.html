@@ -3,12 +3,80 @@
 
 <head>
     <meta charset=utf-8/>
+    <title>hw-05</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="js/d3.v6.1.1/d3.min.js"></script>
 </head>
 
-
 <body>
+    <h1>hw-05: Interactive Graph with D3</h1>
+    <div class="flex">
+        <div class = "left">
+            <div id="vis1"></div>
+            <br>
+            <div id="vis2"></div>
+        </div>
 
 
+        <div class="right">
+            <div id="recent_point">Last Point Clicked: </div>  
+            <br>
+
+            <!-- Div for adding points -->
+            <div class="selection">
+                    <form> 
+                        <!-- Create selection options for x-coordinate -->
+                        <label> X coordinate </label>  
+                        <select id="x-coord">  
+                            <option value = "1"> 1 </option>  
+                            <option value = "2"> 2 </option>  
+                            <option value = "3"> 3 </option> 
+                            <option value = "4"> 4 </option>
+                            <option value = "5"> 5 </option>
+                            <option value = "6"> 6 </option>
+                            <option value = "7"> 7 </option>
+                            <option value = "8"> 8 </option>
+                            <option value = "9"> 9 </option>
+                            <option value = "10"> 10 </option>
+                        </select>   
+                    </form>
+                    <!-- Break in page between forms -->
+                    <br>
+                    <form>  
+                        <!-- Create selection options for y-coordinate -->
+                        <label> Y coordinate </label> 
+                        <select id="y-coord">  
+                        <option value = "1"> 1 </option>  
+                        <option value = "2"> 2 </option>  
+                        <option value = "3"> 3 </option> 
+                        <option value = "4"> 4 </option>
+                        <option value = "5"> 5 </option>
+                        <option value = "6"> 6 </option>
+                        <option value = "7"> 7 </option>
+                        <option value = "8"> 8 </option>
+                        <option value = "9"> 9 </option>
+                        <option value = "10"> 10 </option>
+                        </select>   
+                    </form> 
+                    <br>
+                    <button type="button" id="submit">Submit</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <!-- Acknowledgements -->
+        <h2>Acknowledgments</h2>
+        <div>
+            <ul>
+            </ul>
+        </div>
+    </div>
+
+<!-- connect webpage to Javascript file -->
+<script src="js/d3.v6.1.1/main.js"></script>
 </body>
 
 </html>
